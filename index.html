@@ -68,8 +68,8 @@
             Drop AIPass into any project folder. Your agents persist between sessions, share context, coordinate through mail, and pick up exactly where they left off.
           </p>
           <div class="card-code-block dark" style="margin: 24px auto 0; max-width: 520px; text-align: left;">
-            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">pip install aipass</span>
-<span style="color:#8B949E">$ </span><span style="color:#e6edf3">aipass init run</span></code></pre>
+            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">git clone https://github.com/AIOSAI/AIPass.git</span>
+<span style="color:#8B949E">$ </span><span style="color:#e6edf3">cd AIPass && ./aipass install</span></code></pre>
           </div>
           <div class="button-group margin-paragraph centered">
             <a href="https://github.com/AIOSAI/AIPass#quick-start" class="button primary">Get Started</a>
@@ -78,10 +78,6 @@
               View on GitHub
             </a>
           </div>
-        </div>
-        <div class="image-wide">
-          <img src="images/demo.gif" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);"
-            alt="Terminal demo showing aipass init, first agent conversation, and memory persistence across sessions" />
         </div>
       </section>
 
@@ -117,7 +113,7 @@
             <div class="feature-heading">
               <p class="paragraph m bold">Your CLI, Your Subscription</p>
               <p class="paragraph m secondary">
-                Runs on your existing Claude Code, Codex, or Gemini subscription. No API keys for core features. No extra costs. AIPass orchestrates, your CLI does the work.
+                Runs on your existing Claude subscription — Pro or Max. No API keys for core features. No extra costs. AIPass orchestrates, Claude Code does the work.
               </p>
             </div>
           </div>
@@ -135,9 +131,9 @@
         <div class="grid columns-3">
           <div class="feature-card">
             <div class="feature-heading">
-              <h3 class="color-accent no-top-margin">1. Install and init</h3>
+              <h3 class="color-accent no-top-margin">1. Clone and install</h3>
               <p class="paragraph s secondary">
-                <code>pip install aipass</code> then <code>aipass init run</code>. A 12-step guided setup creates your first agent with identity, memory, and tools. Under 2 minutes.
+                <code>git clone</code> then <code>./aipass install</code>. One command creates the venv, puts <code>aipass</code> and <code>drone</code> on your PATH, and chains into a guided setup that ends in a live conversation with your first agent.
               </p>
             </div>
           </div>
@@ -145,7 +141,7 @@
             <div class="feature-heading">
               <h3 class="color-accent no-top-margin">2. Say hi</h3>
               <p class="paragraph s secondary">
-                Open your agent's directory and start a conversation. It reads its memory files, knows its role, and picks up context from previous sessions automatically.
+                Setup drops you straight into the conversation. Kill the terminal, come back tomorrow, say hi — your agent reads its memory, knows its role, and picks up exactly where you left off.
               </p>
             </div>
           </div>
@@ -153,7 +149,7 @@
             <div class="feature-heading">
               <h3 class="color-accent no-top-margin">3. Scale up</h3>
               <p class="paragraph s secondary">
-                Add more agents when your project needs them. One agent for backend, one for frontend, one for docs. They coordinate through drone commands and mail.
+                Add more agents when your project needs them, or spin up a whole new project around a resident manager with <code>aipass new</code>. Agents coordinate through drone commands and mail.
               </p>
             </div>
           </div>
@@ -166,26 +162,26 @@
           <div class="heading">
             <h2 class="no-top-margin">Bring your own project</h2>
             <p class="paragraph m secondary">
-              AIPass works with any codebase. Python, JavaScript, Rust, Go, whatever you're building. It adds a scaffold alongside your existing code and stays out of the way.
+              AIPass works with any codebase — it's a scaffold, not a product, so you shape it to whatever you're building. It adds a scaffold alongside your existing code and stays out of the way.
             </p>
             <p class="paragraph m secondary">
-              Start with 1 agent for a side project. Scale to 3 for a web app (backend, frontend, design). The reference implementation runs 13 agents that maintain AIPass itself.
+              Start with 1 agent for a side project, or a few for a larger app. The reference implementation runs 18 agents that maintain AIPass itself.
             </p>
           </div>
           <div class="card-code-block dark">
             <pre class="shiki github-dark-default" style="margin: 0px; color: #e6edf3"
-              tabindex="0"><code><span class="line"><span style="color:#8B949E"># What aipass init creates</span></span>
+              tabindex="0"><code><span class="line"><span style="color:#8B949E"># What aipass init creates (abridged: a fresh spawn also gets docs/, tools/, a dashboard file)</span></span>
 <span class="line"><span style="color:#e6edf3">your-project/</span></span>
 <span class="line"><span style="color:#e6edf3">  src/your_project/</span></span>
 <span class="line"><span style="color:#7EE787">    your-agent/</span></span>
-<span class="line"><span style="color:#7EE787">      .trinity/</span><span style="color:#8B949E">          # Memory files</span></span>
-<span class="line"><span style="color:#7EE787">        passport.json</span><span style="color:#8B949E">   # Identity</span></span>
-<span class="line"><span style="color:#7EE787">        local.json</span><span style="color:#8B949E">      # Session history</span></span>
-<span class="line"><span style="color:#7EE787">        observations.json</span><span style="color:#8B949E"># Learnings</span></span>
+<span class="line"><span style="color:#7EE787">      .trinity/</span><span style="color:#8B949E">          # Identity + memory (persists across sessions)</span></span>
+<span class="line"><span style="color:#7EE787">      .ai_mail.local/</span><span style="color:#8B949E">   # Mailbox</span></span>
+<span class="line"><span style="color:#7EE787">      .aipass/</span><span style="color:#8B949E">          # Branch prompt (how this agent introduces itself)</span></span>
 <span class="line"><span style="color:#7EE787">      apps/</span><span style="color:#8B949E">             # Your agent's code</span></span>
-<span class="line"><span style="color:#7EE787">      tests/</span><span style="color:#8B949E">            # Agent tests</span></span>
-<span class="line"><span style="color:#7EE787">      tools/</span><span style="color:#8B949E">            # Agent tools</span></span>
-<span class="line"><span style="color:#7EE787">      CLAUDE.md</span><span style="color:#8B949E">         # Agent instructions</span></span></code></pre>
+<span class="line"><span style="color:#7EE787">      artifacts/</span><span style="color:#8B949E">        # Birth certificate + outputs</span></span>
+<span class="line"><span style="color:#7EE787">      logs/</span><span style="color:#8B949E">             # Structured logs</span></span>
+<span class="line"><span style="color:#7EE787">      tests/</span><span style="color:#8B949E">            # The agent's own test suite</span></span>
+<span class="line"><span style="color:#7EE787">      README.md</span><span style="color:#8B949E">         # Agent readme</span></span></code></pre>
           </div>
         </div>
       </section>
@@ -203,7 +199,7 @@
             </summary>
             <div class="accordion-content">
               <p>
-                Claude Code and Codex are fully supported. AIPass runs each CLI as an official subprocess using your existing subscription. No API keys needed for core functionality.
+                Claude Code. AIPass runs it as an official subprocess using your existing Pro or Max subscription. No API keys needed for core functionality.
               </p>
             </div>
           </details>
@@ -215,19 +211,19 @@
             </summary>
             <div class="accordion-content">
               <p>
-                Linux and WSL are the primary targets. macOS has partial support. AIPass is a Python package that runs in your terminal alongside your existing development tools.
+                Linux, macOS, or Windows via Git Bash (tested in CI) — WSL should work but is untested. AIPass is a Python package that runs in your terminal alongside your existing development tools.
               </p>
             </div>
           </details>
 
           <details class="accordion-item" name="faq">
             <summary class="accordion-toggle">
-              <p class="paragraph m bold">Do I need all 13 agents?</p>
+              <p class="paragraph m bold">Do I need all 18 agents?</p>
               <span class="accordion-chevron fa-solid fa-chevron-down"></span>
             </summary>
             <div class="accordion-content">
               <p>
-                No. Start with 1. The 13 agents in the repo are the reference implementation that maintains AIPass itself. Your project might need 1 agent for a side project, or 3 for a web app. Scale as needed.
+                No. Start with 1. The 18 agents in the repo are the reference implementation that maintains AIPass itself. Your project might need 1 agent for a side project, or 3 for a web app. Scale as needed.
               </p>
             </div>
           </details>
@@ -251,7 +247,7 @@
             </summary>
             <div class="accordion-content">
               <p>
-                Yes. AIPass core is free and open source (MIT). You just need an existing CLI subscription (Claude Pro/Max, Codex, etc.) to run your agents.
+                Yes. AIPass core is free and open source (MIT). You just need an existing Claude subscription (Pro or Max) to run your agents.
               </p>
             </div>
           </details>
@@ -263,7 +259,8 @@
         <div class="heading centered">
           <h2>Start building with agents that remember.</h2>
           <div class="card-code-block dark" style="margin: 24px auto 0; max-width: 520px; text-align: left;">
-            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">pip install aipass && aipass init run</span></code></pre>
+            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">git clone https://github.com/AIOSAI/AIPass.git</span>
+<span style="color:#8B949E">$ </span><span style="color:#e6edf3">cd AIPass && ./aipass install</span></code></pre>
           </div>
           <div class="button-group margin-paragraph centered">
             <a href="https://github.com/AIOSAI/AIPass" class="button primary">
@@ -301,6 +298,22 @@
             <a href="https://reddit.com/r/AIPass" class="icon-link ui s" target="_blank">
               <div class="fa-brands fa-reddit icon m color-accent"></div>
               <div class="pseudo-link">Reddit</div>
+            </a>
+            <a href="https://x.com/AIPassSystem" class="icon-link ui s" target="_blank">
+              <div class="fa-brands fa-x-twitter icon m color-accent"></div>
+              <div class="pseudo-link">X</div>
+            </a>
+            <a href="https://bsky.app/profile/aipass.bsky.social" class="icon-link ui s" target="_blank">
+              <div class="fa-brands fa-bluesky icon m color-accent"></div>
+              <div class="pseudo-link">Bluesky</div>
+            </a>
+            <a href="https://news.ycombinator.com/user?id=AIOSAI" class="icon-link ui s" target="_blank">
+              <div class="fa-brands fa-hacker-news icon m color-accent"></div>
+              <div class="pseudo-link">Hacker News</div>
+            </a>
+            <a href="https://dev.to/aipass" class="icon-link ui s" target="_blank">
+              <div class="fa-brands fa-dev icon m color-accent"></div>
+              <div class="pseudo-link">dev.to</div>
             </a>
           </div>
         </div>
