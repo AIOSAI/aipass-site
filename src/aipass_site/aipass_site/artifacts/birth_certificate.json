@@ -1,0 +1,15 @@
+{
+  "id": "1",
+  "name": "AIPASS_SITE Birth Certificate",
+  "type": "birth_certificate",
+  "creator": "SYSTEM",
+  "owner": "AIPASS_SITE",
+  "rarity": "unique",
+  "description": "Official birth certificate for AIPASS_SITE. Citizen #1, project_agent class. Purpose: Resident agent of the aipass-site project.",
+  "metadata": {
+    "citizen_number": "1",
+    "citizen_class": "project_agent",
+    "purpose": "Resident agent of the aipass-site project."
+  },
+  "created_at": "2026-07-20"
+}

@@ -1,0 +1,50 @@
+# AIPass local state
+.trinity/
+.ai_mail.local/
+*.local.*
+
+# Plans (local working docs)
+DPLAN-*
+FPLAN-*
+APLAN-*
+TDPLAN-*
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archives
+.archive/
+
+# Disabled files
+*(disabled)*
+
+# AIPass adopt gaps (devpulse hotfix): symlinked venv + registry lock
+.venv
+.*_REGISTRY.lock
+
+# AIPass machine state, the same lines the AIPass repo's own .gitignore carries:
+# one machine's bookkeeping, recreated on use. The deletions ledger and the
+# spawn recovery copies carry local absolute paths and must never be published.
+.ai_central/
+.backup/
+.recovery/
+.spawn/
+*.aipass-new
+AIPASS-SITE_REGISTRY.json

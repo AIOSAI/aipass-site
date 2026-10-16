@@ -1,34 +1,153 @@
-<img width="830" height="396" alt="Github image" src="https://github.com/user-attachments/assets/d8630eb0-ba98-4939-851f-b3ec44b2d286" />
+# aipass-site
 
-LaunchKit is a free HTML landing page template specifically designed for developer tools and open source products.
+**The AIPass landing page** — the static marketing site for
+[AIPass](https://github.com/AIOSAI/AIPass), a persistent agent workspace.
 
-Read more about its features: https://launchkit.evilmartians.io
+Plain HTML, CSS, and JavaScript. **No build step, no framework, nothing to
+install** — there is no `package.json`, no bundler config, and no `Makefile` in
+this repo. Open `index.html` and you are looking at the site.
 
-## Why use LaunchKit instead of crafting a landing page from scratch?
+---
 
-1. It’s a ready-to-deploy solution that lets you adjust the content for your product and launch it within a couple of hours.
-2. Customization is as easy as tweaking CSS variables.
-3. It includes all the essential elements to showcase your product. If something’s missing, just create an issue.
-4. The template is mobile-friendly and uses a market-standard layout to ensure great usability.
+## Quick Start
 
-<img width="1200" height="800" alt="hero-shot" src="https://github.com/user-attachments/assets/26ab820d-e414-4d3d-b1ad-8a0c49e96287" />
+```bash
+# Clone it
+gh repo clone AIOSAI/aipass-site
+# (plain git works too: the remote is https://github.com/AIOSAI/aipass-site.git)
+cd aipass-site
 
+# Just open the file
+xdg-open index.html                  # macOS: open index.html
 
-## How to use it?
+# Or serve it, if you want real paths and no file:// quirks
+python3 -m http.server 8000          # then visit http://localhost:8000
+```
 
-Simply clone the repo to your account and edit it:
-- Decide which blocks in the template make sense for your landing page and remove the rest.
-- Replace all “Lorem ipsum” text with your own copy.
-- Upload your images.
-- Set up actions for the buttons and links.
+Edit `index.html`, save, reload the browser. That is the whole loop.
 
-## How do I adjust the color theme to match my brand identity?
+---
 
-You can update the color theme in two ways:
+## What's in here
 
-1. Switch between light and dark modes. Add the `theme-dark` class to the `html` element of any page to enable the dark theme. If no class is set, the light theme is used by default.
-2. Customize the color palette. Use this [tool](https://codepen.io/romanshamin/full/QwWgNLN) to tweak the overall color theme. Adjust the two sliders until both themes match your brand’s vibe. Then, copy the color codes from the tool and paste them into the corresponding `--colors` variables in `index.css`.
+```
+index.html           # the landing page — 327 lines, the whole site
+logo-preview.html    # branding scratch page: wordmark + fingerprint SVGs side by side
+css/
+  index.css          # 818 lines — design tokens, components, both themes
+  tablet.css         # 62 lines
+  mobile.css         # 108 lines
+  pricing.css        # 74 lines — unused, see Loose Ends
+js/
+  main.js            # 20 lines — mobile nav toggle, nothing else
+  pricing.js         # 38 lines — unused, see Loose Ends
+fonts/               # Inter (variable woff2 + italic), JetBrains Mono (variable ttf)
+images/              # AIPass wordmark, fingerprint, favicon set + unused template assets
+vendor/              # Font Awesome 6.7.2 (css + webfonts), vendored — no CDN
+src/aipass_site/     # the AIPass agent that maintains this repo
+LICENSE              # MIT — Evil Martians, from the upstream template
+```
 
-# How do I publish my website?
+`index.html` loads `index.css`, `tablet.css`, `mobile.css`, and `main.js`.
+Nothing else is wired in.
 
-This template consists of static files (HTML, CSS, JS), so it’s ready to go. You can host it on any static hosting service — like Firebase, Netlify, Vercel, GitHub Pages, or your own server. Just upload the files and you’re live.
+---
+
+## The page
+
+One page, six sections, in order:
+
+1. **Hero** — "AI agents that remember, collaborate, and never start from zero,"
+   with the two-line install snippet (clone → `./aipass install`)
+2. **What you get** — three cards: Persistent Memory, Agent Coordination,
+   Your CLI / Your Subscription
+3. **How it works** — three steps: Clone and install → Say hi → Scale up
+4. **Bring your own project** — the pitch for any codebase, beside a code block
+   showing the directory tree `aipass init` creates
+5. **FAQ** — five accordion items: CLI providers, platforms, "do I need all 18
+   agents", how it differs from CrewAI/LangChain, and is it free
+6. **CTA** — the install snippet again, plus GitHub and r/AIPass buttons
+
+Outbound links point to `github.com/AIOSAI/AIPass`, `pypi.org/project/aipass/`,
+`reddit.com/r/AIPass`, X, Bluesky, Hacker News, and dev.to.
+
+No "Lorem ipsum" or placeholder copy remains in `index.html`.
+
+---
+
+## Theming
+
+Colors are CSS custom properties in `css/index.css` — 55 `--color-*`
+declarations in total.
+
+- `:root` (line 25) holds the **light** palette — the default, 36 declarations.
+- `.theme-dark` (line 150) overrides it for the **dark** palette, 19 declarations.
+- `index.html` ships with `<html lang="en" class="theme-dark">`, so the live
+  page is dark. Remove that class to get the light theme.
+
+To reskin, edit the `--color-*` values in those two blocks. The upstream
+template's palette tool still works for generating a matched light/dark pair:
+<https://codepen.io/romanshamin/full/QwWgNLN>
+
+---
+
+## Deploying
+
+Static files, so any static host works — Netlify, Vercel, GitHub Pages,
+Firebase, Cloudflare Pages, or a plain web server. Upload the repo contents;
+there is nothing to compile.
+
+**Unverified:** this repo contains **no deployment configuration** — no
+`netlify.toml`, `vercel.json`, `CNAME`, or `.github/workflows/`. The page's
+Open Graph metadata declares `https://aipass.ai` as its URL, but that is a tag
+inside `index.html`, not proof of a live deployment. How and where this site is
+actually published is not recorded anywhere in this repo.
+
+---
+
+## Loose ends
+
+Honest inventory, none of it fixed:
+
+- **`css/pricing.css` and `js/pricing.js` are orphans.** No HTML file in the
+  repo references either one — there is no pricing page. Both are template
+  leftovers.
+- **Unused image assets ship with the repo:** `demo.gif` (4.0 MB),
+  `placeholder-feature.png`, `placeholder-feature-4-3.png`,
+  `placeholder-feature-16-9.png`, `placeholder-main-ui.png`, `logo-1/2/3.png`,
+  `Logo-Template.svg`, `aipass-banner.png`, `aipass-fingerprint-256.png`,
+  `aipass-wordmark-traced.svg`, and `images/favicon/favicon.png`. Nothing links
+  to them. The first six are upstream template assets; the AIPass-branded ones
+  appear to be alternates kept from the branding pass.
+- **`.gitignore.txt`** is a stray second ignore file — a Node/Vite-flavoured
+  list that git does not read. The real one is `.gitignore`.
+- **`LICENSE` carries only the Evil Martians copyright** (see below). There is
+  no separate AIPass copyright notice in the repo, though the page footer
+  displays "© 2026 AIPass".
+
+---
+
+## Agent workspace
+
+`src/aipass_site/` holds **AIPASS_SITE**, the resident AIPass agent for this
+repo. See [`src/aipass_site/aipass_site/README.md`](src/aipass_site/aipass_site/README.md)
+for what it does and how to talk to it.
+
+---
+
+## License and attribution
+
+MIT — see [`LICENSE`](LICENSE).
+
+This site is built on **[LaunchKit](https://launchkit.evilmartians.io)**, the
+open-source landing page template by
+**[Evil Martians](https://evilmartians.com)**. The `LICENSE` file in this repo
+is LaunchKit's MIT license, `Copyright (c) 2025 Evil Martians`, retained as that
+license requires. The page footer credits LaunchKit as well.
+
+The AIPass copy, branding, and page structure in `index.html` are original work;
+the CSS framework, fonts, and layout system come from the template.
+
+---
+
+*Last Updated: 2026-08-25*
