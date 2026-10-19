@@ -50,7 +50,7 @@
         <a href="https://github.com/AIOSAI/AIPass" class="button ghost compact hide-on-mobile">
           <div class="fa-brands fa-github icon l"></div>
         </a>
-        <a href="https://github.com/AIOSAI/AIPass#quick-start" class="button primary compact">Get Started</a>
+        <a href="https://github.com/AIOSAI/AIPass#install" class="button primary compact">Get Started</a>
         <button class="button ghost compact nav-hamburger" data-mobile-toggle aria-label="Show menu">
           <span class="fa-solid fa-bars icon m"></span>
         </button>
@@ -68,11 +68,11 @@
             Drop AIPass into any project folder. Your agents persist between sessions, share context, coordinate through mail, and pick up exactly where they left off.
           </p>
           <div class="card-code-block dark" style="margin: 24px auto 0; max-width: 520px; text-align: left;">
-            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">git clone https://github.com/AIOSAI/AIPass.git</span>
-<span style="color:#8B949E">$ </span><span style="color:#e6edf3">cd AIPass && ./aipass install</span></code></pre>
+            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">pipx install aipass</span>
+<span style="color:#8B949E">$ </span><span style="color:#e6edf3">aipass install</span></code></pre>
           </div>
           <div class="button-group margin-paragraph centered">
-            <a href="https://github.com/AIOSAI/AIPass#quick-start" class="button primary">Get Started</a>
+            <a href="https://github.com/AIOSAI/AIPass#install" class="button primary">Get Started</a>
             <a href="https://github.com/AIOSAI/AIPass" class="button tertiary">
               <div class="fa-brands fa-github icon m"></div>
               View on GitHub
@@ -113,7 +113,7 @@
             <div class="feature-heading">
               <p class="paragraph m bold">Your CLI, Your Subscription</p>
               <p class="paragraph m secondary">
-                Runs on your existing Claude subscription — Pro or Max. No API keys for core features. No extra costs. AIPass orchestrates, Claude Code does the work.
+                Runs on your existing Claude subscription — any plan that includes Claude Code. No API keys for core features. No extra costs. AIPass orchestrates, Claude Code does the work.
               </p>
             </div>
           </div>
@@ -131,9 +131,9 @@
         <div class="grid columns-3">
           <div class="feature-card">
             <div class="feature-heading">
-              <h3 class="color-accent no-top-margin">1. Clone and install</h3>
+              <h3 class="color-accent no-top-margin">1. Install</h3>
               <p class="paragraph s secondary">
-                <code>git clone</code> then <code>./aipass install</code>. One command creates the venv, puts <code>aipass</code> and <code>drone</code> on your PATH, and chains into a guided setup that ends in a live conversation with your first agent.
+                <code>pipx install aipass</code> puts <code>aipass</code> and <code>drone</code> on your PATH. <code>aipass install</code> clones AIPass into <code>~/AIPass</code>, builds its environment, sets up the 18 agents, adds BAUD, the phone face (<code>--no-baud</code> skips it), runs a health check, and ends with the AIPass concierge on screen, greeting you and saying what your machine still needs. From a clone instead: <code>./aipass install</code> in the repo. You need Python 3.10+, Claude Code on a plan that includes it, and Linux or macOS (Windows through WSL2).
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@
             <div class="feature-heading">
               <h3 class="color-accent no-top-margin">2. Say hi</h3>
               <p class="paragraph s secondary">
-                Setup drops you straight into the conversation. Kill the terminal, come back tomorrow, say hi — your agent reads its memory, knows its role, and picks up exactly where you left off.
+                <code>aipass new</code> builds a new project around a resident manager agent and ends in a conversation with it; <code>aipass init run</code>, inside a directory you already have, does a guided setup and ends with <code>claude</code> open in it. Kill the terminal, come back tomorrow, say hi — your agent reads its memory, knows its role, and picks up exactly where you left off.
               </p>
             </div>
           </div>
@@ -149,7 +149,7 @@
             <div class="feature-heading">
               <h3 class="color-accent no-top-margin">3. Scale up</h3>
               <p class="paragraph s secondary">
-                Add more agents when your project needs them, or spin up a whole new project around a resident manager with <code>aipass new</code>. Agents coordinate through drone commands and mail.
+                Add more agents with <code>drone @spawn create</code> when your project needs them, or spin up a whole new project around a resident manager with <code>aipass new</code>. Agents coordinate through drone commands and mail.
               </p>
             </div>
           </div>
@@ -162,7 +162,7 @@
           <div class="heading">
             <h2 class="no-top-margin">Bring your own project</h2>
             <p class="paragraph m secondary">
-              AIPass works with any codebase — it's a scaffold, not a product, so you shape it to whatever you're building. It adds a scaffold alongside your existing code and stays out of the way.
+              AIPass works with any codebase — it's a scaffold, not a product, so you shape it to whatever you're building. It adds a scaffold alongside your existing code; install also adds hooks and deny rules to your user-level Claude Code settings, a few lines to your shell rc, and command links on your PATH.
             </p>
             <p class="paragraph m secondary">
               Start with 1 agent for a side project, or a few for a larger app. The reference implementation runs 18 agents that maintain AIPass itself.
@@ -170,18 +170,18 @@
           </div>
           <div class="card-code-block dark">
             <pre class="shiki github-dark-default" style="margin: 0px; color: #e6edf3"
-              tabindex="0"><code><span class="line"><span style="color:#8B949E"># What aipass init creates (abridged: a fresh spawn also gets docs/, tools/, a dashboard file)</span></span>
+              tabindex="0"><code><span class="line"><span style="color:#8B949E"># One citizen shape: what aipass init run and drone @spawn create make (abridged: a fresh spawn also gets docs/, tools/, a dashboard file)</span></span>
 <span class="line"><span style="color:#e6edf3">your-project/</span></span>
 <span class="line"><span style="color:#e6edf3">  src/your_project/</span></span>
 <span class="line"><span style="color:#7EE787">    your-agent/</span></span>
 <span class="line"><span style="color:#7EE787">      .trinity/</span><span style="color:#8B949E">          # Identity + memory (persists across sessions)</span></span>
-<span class="line"><span style="color:#7EE787">      .ai_mail.local/</span><span style="color:#8B949E">   # Mailbox</span></span>
+<span class="line"><span style="color:#7EE787">      .ai_mail.local/</span><span style="color:#8B949E">   # Mailbox (receives tasks, sends results)</span></span>
 <span class="line"><span style="color:#7EE787">      .aipass/</span><span style="color:#8B949E">          # Branch prompt (how this agent introduces itself)</span></span>
-<span class="line"><span style="color:#7EE787">      apps/</span><span style="color:#8B949E">             # Your agent's code</span></span>
-<span class="line"><span style="color:#7EE787">      artifacts/</span><span style="color:#8B949E">        # Birth certificate + outputs</span></span>
-<span class="line"><span style="color:#7EE787">      logs/</span><span style="color:#8B949E">             # Structured logs</span></span>
+<span class="line"><span style="color:#7EE787">      apps/</span><span style="color:#8B949E">             # Entry point → modules → handlers</span></span>
+<span class="line"><span style="color:#7EE787">      artifacts/</span><span style="color:#8B949E">        # Birth certificate + agent-produced files</span></span>
+<span class="line"><span style="color:#7EE787">      logs/</span><span style="color:#8B949E">             # Per-agent logs</span></span>
 <span class="line"><span style="color:#7EE787">      tests/</span><span style="color:#8B949E">            # The agent's own test suite</span></span>
-<span class="line"><span style="color:#7EE787">      README.md</span><span style="color:#8B949E">         # Agent readme</span></span></code></pre>
+<span class="line"><span style="color:#7EE787">      README.md</span><span style="color:#8B949E">         # Domain knowledge (read on startup)</span></span></code></pre>
           </div>
         </div>
       </section>
@@ -199,7 +199,7 @@
             </summary>
             <div class="accordion-content">
               <p>
-                Claude Code. AIPass runs it as an official subprocess using your existing Pro or Max subscription. No API keys needed for core functionality.
+                Claude Code. AIPass runs it as an official subprocess on your existing Claude plan, any plan that includes Claude Code (Pro, Max, Team or Enterprise). No API keys needed for core functionality.
               </p>
             </div>
           </details>
@@ -223,7 +223,7 @@
             </summary>
             <div class="accordion-content">
               <p>
-                No. Start with 1. The 18 agents in the repo are the reference implementation that maintains AIPass itself. Your project might need 1 agent for a side project, or 3 for a web app. Scale as needed.
+                No. Start with 1. The 18 agents in the repo are the reference implementation that maintains AIPass itself. Your project might need 1 agent for a side project, or a few for a larger app. Scale as needed.
               </p>
             </div>
           </details>
@@ -247,7 +247,43 @@
             </summary>
             <div class="accordion-content">
               <p>
-                Yes. AIPass core is free and open source (MIT). You just need an existing Claude subscription (Pro or Max) to run your agents.
+                Yes. AIPass core is free and open source (MIT). You just need an existing Claude subscription (any plan that includes Claude Code) to run your agents.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item" name="faq">
+            <summary class="accordion-toggle">
+              <p class="paragraph m bold">Does anything leave my machine?</p>
+              <span class="accordion-chevron fa-solid fa-chevron-down"></span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Memory and mail are files on your machine. Nothing leaves it except what Claude Code itself sends to Anthropic, unless you turn on an outside API or Drive sync with your own keys. The phone face serves on your own tailnet, and the first memory search downloads its small embedding model once.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item" name="faq">
+            <summary class="accordion-toggle">
+              <p class="paragraph m bold">What is BAUD?</p>
+              <span class="accordion-chevron fa-solid fa-chevron-down"></span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                The phone face. BAUD shows the same fleet to a human on a phone, served from your own machine. AIPass is what everything runs on; BAUD is how you look at it. <code>aipass install</code> sets it up with AIPass (<code>--no-baud</code> skips it), and it lives in its own repo, <a href="https://github.com/AIOSAI/baud" target="_blank">github.com/AIOSAI/baud</a>, whose README covers pairing and security.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item" name="faq">
+            <summary class="accordion-toggle">
+              <p class="paragraph m bold">How do I uninstall?</p>
+              <span class="accordion-chevron fa-solid fa-chevron-down"></span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                No cloud accounts, no external services: everything to clean up is on your machine. The README's <a href="https://github.com/AIOSAI/AIPass#uninstall" target="_blank">Uninstall section</a> walks through removing AIPass from a project, from the machine, or removing one agent with <code>drone @spawn delete @agent_name --retire</code>.
               </p>
             </div>
           </details>
@@ -259,8 +295,8 @@
         <div class="heading centered">
           <h2>Start building with agents that remember.</h2>
           <div class="card-code-block dark" style="margin: 24px auto 0; max-width: 520px; text-align: left;">
-            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">git clone https://github.com/AIOSAI/AIPass.git</span>
-<span style="color:#8B949E">$ </span><span style="color:#e6edf3">cd AIPass && ./aipass install</span></code></pre>
+            <pre style="margin: 0; color: #e6edf3; padding: 16px 20px; font-size: 15px;"><code><span style="color:#8B949E">$ </span><span style="color:#e6edf3">pipx install aipass</span>
+<span style="color:#8B949E">$ </span><span style="color:#e6edf3">aipass install</span></code></pre>
           </div>
           <div class="button-group margin-paragraph centered">
             <a href="https://github.com/AIOSAI/AIPass" class="button primary">
