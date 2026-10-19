@@ -170,18 +170,22 @@
           </div>
           <div class="card-code-block dark">
             <pre class="shiki github-dark-default" style="margin: 0px; color: #e6edf3"
-              tabindex="0"><code><span class="line"><span style="color:#8B949E"># One citizen shape: what aipass init run and drone @spawn create make (abridged: a fresh spawn also gets docs/, tools/, a dashboard file)</span></span>
+              tabindex="0"><code><span class="line"><span style="color:#8B949E"># One citizen shape: what aipass init run and drone @spawn create make (main parts)</span></span>
 <span class="line"><span style="color:#e6edf3">your-project/</span></span>
 <span class="line"><span style="color:#e6edf3">  src/your_project/</span></span>
 <span class="line"><span style="color:#7EE787">    your-agent/</span></span>
-<span class="line"><span style="color:#7EE787">      .trinity/</span><span style="color:#8B949E">          # Identity + memory (persists across sessions)</span></span>
-<span class="line"><span style="color:#7EE787">      .ai_mail.local/</span><span style="color:#8B949E">   # Mailbox (receives tasks, sends results)</span></span>
-<span class="line"><span style="color:#7EE787">      .aipass/</span><span style="color:#8B949E">          # Branch prompt (how this agent introduces itself)</span></span>
-<span class="line"><span style="color:#7EE787">      apps/</span><span style="color:#8B949E">             # Entry point → modules → handlers</span></span>
-<span class="line"><span style="color:#7EE787">      artifacts/</span><span style="color:#8B949E">        # Birth certificate + agent-produced files</span></span>
-<span class="line"><span style="color:#7EE787">      logs/</span><span style="color:#8B949E">             # Per-agent logs</span></span>
-<span class="line"><span style="color:#7EE787">      tests/</span><span style="color:#8B949E">            # The agent's own test suite</span></span>
-<span class="line"><span style="color:#7EE787">      README.md</span><span style="color:#8B949E">         # Domain knowledge (read on startup)</span></span></code></pre>
+<span class="line"><span style="color:#7EE787">      .trinity/</span><span style="color:#8B949E">             # Passport + memory: sessions, learnings, todos, observations</span></span>
+<span class="line"><span style="color:#7EE787">      .ai_mail.local/</span><span style="color:#8B949E">       # Mailbox: inbox, sent, deleted</span></span>
+<span class="line"><span style="color:#7EE787">      .aipass/</span><span style="color:#8B949E">              # Branch prompt: standing instructions, injected by hooks</span></span>
+<span class="line"><span style="color:#7EE787">      apps/</span><span style="color:#8B949E">                 # Entry point → modules → handlers</span></span>
+<span class="line"><span style="color:#7EE787">      docs/</span><span style="color:#8B949E">                 # Reference pages, tracked</span></span>
+<span class="line"><span style="color:#7EE787">      docs.local/</span><span style="color:#8B949E">           # Scratch and research, not tracked</span></span>
+<span class="line"><span style="color:#7EE787">      dropbox/</span><span style="color:#8B949E">              # Inbound drop: files other agents hand over</span></span>
+<span class="line"><span style="color:#7EE787">      artifacts/</span><span style="color:#8B949E">            # Birth certificate + files the agent produces</span></span>
+<span class="line"><span style="color:#7EE787">      logs/</span><span style="color:#8B949E">                 # The agent's own logs</span></span>
+<span class="line"><span style="color:#7EE787">      tests/</span><span style="color:#8B949E">                # The agent's own test suite</span></span>
+<span class="line"><span style="color:#7EE787">      DASHBOARD.local.json</span><span style="color:#8B949E">  # One status glance; refreshed before every wake</span></span>
+<span class="line"><span style="color:#7EE787">      README.md</span><span style="color:#8B949E">             # The page for people; agents use drone @&lt;agent&gt; --help</span></span></code></pre>
           </div>
         </div>
       </section>
