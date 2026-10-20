@@ -133,7 +133,7 @@
             <div class="feature-heading">
               <h3 class="color-accent no-top-margin">1. Install</h3>
               <p class="paragraph s secondary">
-                <code>pipx install aipass</code> puts <code>aipass</code> and <code>drone</code> on your PATH. <code>aipass install</code> clones AIPass into <code>~/AIPass</code>, builds its environment, sets up the 18 agents, adds BAUD, the phone face (<code>--no-baud</code> skips it), runs a health check, and ends with the AIPass concierge on screen, greeting you and saying what your machine still needs. From a clone instead: <code>./aipass install</code> in the repo. You need Python 3.10+, Claude Code on a plan that includes it, and Linux or macOS (Windows through WSL2).
+                <code>pipx install aipass</code> puts <code>aipass</code> and <code>drone</code> on your PATH. <code>aipass install</code> clones AIPass into <code>~/AIPass</code>, builds its environment, sets up the 18 agents, runs a health check, and ends with the AIPass concierge on screen, greeting you and saying what your machine still needs. It also starts a server on your machine for BAUD, the phone face; <code>--no-baud</code> skips that. To work on AIPass itself, install from a clone instead: <code>./aipass install</code> in the repo. You need Python 3.10+, Claude Code on a plan that includes it, and Linux or macOS (Windows through WSL2).
               </p>
             </div>
           </div>
@@ -227,7 +227,7 @@
             </summary>
             <div class="accordion-content">
               <p>
-                No. Start with 1. The 18 agents in the repo are the reference implementation that maintains AIPass itself. Your project might need 1 agent for a side project, or a few for a larger app. Scale as needed.
+                No. Start with 1. The 18 agents in the repo are the reference implementation that maintains AIPass itself; two of them work for you directly: devpulse, the admin seat, and aipass, the concierge for the machine. Your project might need 1 agent for a side project, or a few for a larger app. Scale as needed.
               </p>
             </div>
           </details>
