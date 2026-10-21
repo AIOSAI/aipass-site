@@ -97,11 +97,12 @@ Static files, so any static host works — Netlify, Vercel, GitHub Pages,
 Firebase, Cloudflare Pages, or a plain web server. Upload the repo contents;
 there is nothing to compile.
 
-**Unverified:** this repo contains **no deployment configuration** — no
-`netlify.toml`, `vercel.json`, `CNAME`, or `.github/workflows/`. The page's
-Open Graph metadata declares `https://aipass.ai` as its URL, but that is a tag
-inside `index.html`, not proof of a live deployment. How and where this site is
-actually published is not recorded anywhere in this repo.
+The live site is **<https://aipass.ai>**, served by **GitHub Pages from the
+`main` branch** of `AIOSAI/aipass-site`. The `CNAME` file at the repo root
+holds the custom domain (`aipass.ai`); a push to `main` is a deploy. There is
+no build workflow — no `.github/workflows/`, `netlify.toml`, or `vercel.json` —
+because Pages serves the files as they are. The Pages source branch is a
+GitHub repository setting, not a file in this tree.
 
 ---
 
@@ -150,4 +151,4 @@ the CSS framework, fonts, and layout system come from the template.
 
 ---
 
-*Last Updated: 2026-08-25*
+*Last Updated: 2026-10-21*
