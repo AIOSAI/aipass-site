@@ -48,3 +48,6 @@ Thumbs.db
 .spawn/
 *.aipass-new
 AIPASS-SITE_REGISTRY.json
+
+# impeccable's edit-hook cache (local plugin, this machine only)
+.impeccable/

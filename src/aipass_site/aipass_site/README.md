@@ -16,33 +16,31 @@
 
 ## The Project I Manage
 
-`aipass-site` is the AIPass public landing page — a **static site** (HTML/CSS/JS,
-no build step, no framework). It started from the
-[LaunchKit](https://launchkit.evilmartians.io) template and has since been
-rewritten as the AIPass front door.
+`aipass-site` is the AIPass website at <https://aipass.ai>: four **static
+pages** in plain HTML and one stylesheet, with no build step, no framework and
+no JavaScript. GitHub Pages serves it from `main`.
 
-Repo root layout (verified 2026-08-25):
+Repo root layout:
 
 ```
-index.html           # the landing page — 327 lines, AIPass content
-logo-preview.html    # branding scratch page
-css/                 # index.css, tablet.css, mobile.css, pricing.css
-js/                  # main.js, pricing.js
+index.html           # Home
+install.html         # Install AIPass
+baud.html            # BAUD, the phone face
+docs.html            # Curated links into the docs on GitHub
+css/index.css        # The one stylesheet; theme tokens live in its :root block
 fonts/               # Inter (woff2), JetBrains Mono (ttf)
-images/              # AIPass logo/wordmark/favicon + LaunchKit demo assets
-vendor/              # Font Awesome 6.7.2
-src/aipass_site/     # this agent
+images/              # Wordmark, banner, fingerprint, favicon set; baud/ holds the BAUD screenshots
+logo-preview.html    # Branding scratch page, not linked from the site
+src/aipass_site/     # This agent
 ```
 
-Live page sections: Hero, What you get, How it works, BYOP, FAQ, CTA.
-No "Lorem ipsum" remains in `index.html`.
+The header and footer are one block copied into all four pages, so a change to
+either goes into all four. The repo-root [`README.md`](../../../README.md)
+describes the design, the tokens and the deploy.
 
-**Known loose ends (not fixed, reported):**
-- The **repo-root `README.md` is still the upstream LaunchKit template readme.**
-  It describes LaunchKit, not AIPass — the project's front door misrepresents
-  the site that ships. Awaiting GO before touching it.
-- `css/pricing.css` and `js/pricing.js` are LaunchKit leftovers — no page in the
-  repo references them.
+**Loose ends:** unused brand alternates in `images/` and `logo-preview.html`
+wait on the owner, and `LICENSE` names only Evil Martians, from the LaunchKit
+template the site began from.
 
 ---
 
@@ -132,6 +130,6 @@ to each module in turn until one returns truthy; otherwise the CLI prints
 
 *Created by `aipass new` via spawn project_agent template.*
 
-*Every claim above was verified against the code on 2026-08-25.*
+*Every claim above was verified against the code on 2026-10-21.*
 
-*Last Updated: 2026-08-25*
+*Last Updated: 2026-10-21*

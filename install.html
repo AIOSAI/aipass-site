@@ -20,6 +20,8 @@
   <meta name="twitter:description" content="Two commands on a machine you choose: what you need, what changes, and how to check it worked." />
   <meta name="twitter:image" content="https://aipass.ai/images/aipass-banner.png" />
 
+  <link rel="canonical" href="https://aipass.ai/install.html" />
+  <meta name="theme-color" content="#e9ede8" />
   <link rel="icon" href="images/favicon/favicon.ico" sizes="32x32" />
   <link rel="icon" href="images/favicon/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
@@ -57,7 +59,7 @@
         <div>
           <ul class="plain">
             <li>Python 3.10 or newer.</li>
-            <li><a href="https://code.claude.com/docs">Claude Code</a> on a Claude plan that includes it: Pro, Max, Team or Enterprise.</li>
+            <li><a href="https://code.claude.com/docs">Claude Code</a> on a Claude plan that includes it.</li>
             <li>Linux or macOS. On Windows, install inside <a href="https://learn.microsoft.com/windows/wsl/install">WSL2</a>.</li>
           </ul>
           <p class="note">Linux is the daily platform; macOS runs the full test suite in CI. <a href="https://github.com/AIOSAI/AIPass#requirements">Full requirements</a>.</p>
@@ -108,7 +110,7 @@
 <span class="prompt"># </span>export PATH="$HOME/.local/bin:$PATH"
 <span class="prompt"># </span>pipx install aipass
 <span class="prompt"># </span>aipass install --non-interactive --no-baud</code></pre>
-          <p><code>--non-interactive</code> installs with defaults and asks nothing; <code>--no-baud</code> leaves out the phone face. Install and sign in to Claude Code inside the container to talk to the agents.</p>
+          <p><code>--non-interactive</code> installs with defaults and asks nothing; <code>--no-baud</code> leaves out the phone face. A non-interactive install skips the health check, so run <code>aipass doctor --fix</code> afterwards. Install and sign in to Claude Code inside the container to talk to the agents.</p>
         </div>
       </div>
     </section>
@@ -133,7 +135,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>AIPass is open source under the MIT licence. It runs on your machine, with no account with us.</p>
+      <p>AIPass is open source under the MIT license. It runs on your machine, with no account with us.</p>
       <ul>
         <li><a href="https://github.com/AIOSAI/AIPass">GitHub</a></li>
         <li><a href="https://pypi.org/project/aipass/">PyPI</a></li>

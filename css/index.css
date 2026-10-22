@@ -14,7 +14,7 @@
   font-display: swap;
 }
 
-/* The theme: the only place colours, faces and sizes are set. */
+/* The theme: the only place colors, faces and sizes are set. */
 :root {
   --paper: #e9ede8;
   --ink: #16201b;
@@ -23,6 +23,7 @@
   --screen: #0c110e;
   --screen-text: #dfe7e1;
   --screen-soft: #a3b1a8;
+  --screen-edge: #2c3631;
   --signal: #1c6b42;
   --phosphor: #5bd68e;
 
@@ -298,7 +299,7 @@ pre .prompt {
   aspect-ratio: 760 / 1100;
   object-fit: cover;
   object-position: top;
-  border: 1px solid #2c3631;
+  border: 1px solid var(--screen-edge);
   border-bottom: 0;
   border-radius: 28px 28px 0 0;
 }
@@ -569,7 +570,7 @@ pre .prompt {
 
 .shots img {
   border-radius: 18px;
-  border: 1px solid #2c3631;
+  border: 1px solid var(--screen-edge);
 }
 
 .shots figcaption,
