@@ -29,7 +29,7 @@ Edit a page, save, reload the browser. That is the whole loop.
 ## What's in here
 
 ```
-index.html           # Home: the promise, what it does, your machine on any device, BAUD, FAQ, install
+index.html           # Home: the promise, what it does, a Linux box anywhere, BAUD, FAQ, install
 install.html         # Requirements, the two install commands, what install changes, containers, uninstall
 baud.html            # BAUD, the phone face: four screenshots, what it needs, pairing, how to get it
 docs.html            # A curated index of links into the real docs on GitHub; nothing is copied
