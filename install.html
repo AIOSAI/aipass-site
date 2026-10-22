@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Install AIPass</title>
+  <meta name="description" content="Install AIPass with two commands: what you need, what install changes on your machine, how to check it, and how to run it in a container." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AIPass" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Install AIPass" />
+  <meta property="og:description" content="Two commands on a machine you choose: what you need, what changes, and how to check it worked." />
+  <meta property="og:url" content="https://aipass.ai/install.html" />
+  <meta property="og:image" content="https://aipass.ai/images/aipass-banner.png" />
+  <meta property="og:image:alt" content="The AIPass wordmark" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Install AIPass" />
+  <meta name="twitter:description" content="Two commands on a machine you choose: what you need, what changes, and how to check it worked." />
+  <meta name="twitter:image" content="https://aipass.ai/images/aipass-banner.png" />
+
+  <link rel="icon" href="images/favicon/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="images/favicon/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="images/aipass-wordmark.svg" width="155" height="24" alt="AIPass home" /></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="install.html" aria-current="page">Install</a></li>
+          <li><a href="baud.html">BAUD</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="https://github.com/AIOSAI/AIPass">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <h1>Install AIPass</h1>
+        <p class="lede">Two commands on a machine you choose. Here is what you need, what changes, and how to check it worked.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="needs">
+      <div class="wrap">
+        <h2 id="needs">What you need</h2>
+        <div>
+          <ul class="plain">
+            <li>Python 3.10 or newer.</li>
+            <li><a href="https://code.claude.com/docs">Claude Code</a> on a Claude plan that includes it: Pro, Max, Team or Enterprise.</li>
+            <li>Linux or macOS. On Windows, install inside <a href="https://learn.microsoft.com/windows/wsl/install">WSL2</a>.</li>
+          </ul>
+          <p class="note">Linux is the daily platform; macOS runs the full test suite in CI. <a href="https://github.com/AIOSAI/AIPass#requirements">Full requirements</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="steps">
+      <div class="wrap">
+        <h2 id="steps">Install</h2>
+        <ol class="steps">
+          <li>
+            Put the <code>aipass</code> command on your PATH.
+            <pre><code><span class="prompt">$ </span>pipx install aipass</code></pre>
+          </li>
+          <li>
+            Run the installer.
+            <pre><code><span class="prompt">$ </span>aipass install</code></pre>
+            <p>It sets AIPass up in <code>~/AIPass</code>, checks the machine's health, and ends in a conversation that tells you what your machine still needs. It also sets up BAUD, the phone face; add <code>--no-baud</code> to skip it.</p>
+          </li>
+          <li>
+            Check it.
+            <pre><code><span class="prompt">$ </span>aipass doctor</code></pre>
+            <p>Doctor names anything that is off, and <code>aipass doctor --fix</code> cures what it can.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="changes">
+      <div class="wrap">
+        <h2 id="changes">What install changes</h2>
+        <div>
+          <p>Beyond its own folder, install adds hooks and deny rules to your user-level Claude Code settings, a few lines to your shell startup file, and command links on your PATH. It may also set git's <code>pull.rebase</code> and, on Linux, add one npm package for the sandbox. Every change to your Claude Code settings leaves a dated backup first.</p>
+          <p><a href="https://github.com/AIOSAI/AIPass#what-install-changes">See every change it makes</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="container">
+      <div class="wrap">
+        <h2 id="container">Run it in a container</h2>
+        <div>
+          <p>A container keeps AIPass and its agents in a sandbox, apart from the rest of your machine.</p>
+          <pre><code><span class="prompt">$ </span>docker run -it python:3.12-slim bash
+<span class="prompt"># </span>apt-get update &amp;&amp; apt-get install -y git
+<span class="prompt"># </span>pip install pipx &amp;&amp; pipx ensurepath
+<span class="prompt"># </span>export PATH="$HOME/.local/bin:$PATH"
+<span class="prompt"># </span>pipx install aipass
+<span class="prompt"># </span>aipass install --non-interactive --no-baud</code></pre>
+          <p><code>--non-interactive</code> installs with defaults and asks nothing; <code>--no-baud</code> leaves out the phone face. Install and sign in to Claude Code inside the container to talk to the agents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="baud">
+      <div class="wrap">
+        <h2 id="baud">BAUD is optional</h2>
+        <p><code>aipass install</code> sets up BAUD, the phone face, unless you pass <code>--no-baud</code>. Skip it if you only want the terminal. <a href="baud.html">What BAUD does</a>.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="uninstall">
+      <div class="wrap">
+        <h2 id="uninstall">Uninstall</h2>
+        <div>
+          <p>Everything to clean up is on your machine; there are no accounts to close. The README walks through removing AIPass from a project, from the whole machine, or removing a single agent.</p>
+          <p><a href="https://github.com/AIOSAI/AIPass#uninstall">How to uninstall</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>AIPass is open source under the MIT licence. It runs on your machine, with no account with us.</p>
+      <ul>
+        <li><a href="https://github.com/AIOSAI/AIPass">GitHub</a></li>
+        <li><a href="https://pypi.org/project/aipass/">PyPI</a></li>
+        <li><a href="https://reddit.com/r/AIPass">r/AIPass</a></li>
+        <li><a href="https://x.com/AIPassSystem">X</a></li>
+        <li><a href="https://bsky.app/profile/aipass.bsky.social">Bluesky</a></li>
+        <li><a href="https://dev.to/aipass">dev.to</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>

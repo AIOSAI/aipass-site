@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BAUD: your AIPass machine on your phone</title>
+  <meta name="description" content="BAUD is the phone face of your AIPass machine: see which agents are working, open their live sessions, and check the machine, served from your own machine." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AIPass" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="BAUD: your AIPass machine on your phone" />
+  <meta property="og:description" content="See which agents are working, open their live sessions, and check the machine, from your phone. Served from your own machine." />
+  <meta property="og:url" content="https://aipass.ai/baud.html" />
+  <meta property="og:image" content="https://aipass.ai/images/baud/baud-wheel.png" />
+  <meta property="og:image:alt" content="BAUD's wheel: a project's agents in a row, each with its live state" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BAUD: your AIPass machine on your phone" />
+  <meta name="twitter:description" content="See which agents are working, open their live sessions, and check the machine, from your phone. Served from your own machine." />
+  <meta name="twitter:image" content="https://aipass.ai/images/baud/baud-wheel.png" />
+
+  <link rel="icon" href="images/favicon/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="images/favicon/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="images/aipass-wordmark.svg" width="155" height="24" alt="AIPass home" /></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="install.html">Install</a></li>
+          <li><a href="baud.html" aria-current="page">BAUD</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="https://github.com/AIOSAI/AIPass">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <h1>BAUD: your AIPass machine on your phone</h1>
+        <p class="lede">See which agents are working, open their live sessions and type into them, and check on the machine itself, from your phone's browser. Served from your own machine, with no account with us.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="what">
+      <div class="wrap">
+        <h2 id="what">What it is</h2>
+        <p>BAUD is the phone face of your AIPass machine: the agents, their rooms, the machine monitor, your project files, git changes and backups. AIPass is what everything runs on; BAUD is how you look at it from anywhere.</p>
+      </div>
+    </section>
+
+    <section class="gallery screen" aria-labelledby="look">
+      <div class="wrap">
+        <h2 id="look">What it looks like</h2>
+        <figure class="shots-wide">
+          <img src="images/baud/baud-wheel.png" width="1082" height="308" alt="The wheel: a project's agents in a row, the selected one ringed in green, each with a count of waiting mail." />
+          <figcaption>The wheel: every agent in a project, with its live state and waiting mail.</figcaption>
+        </figure>
+        <div class="shots">
+          <figure>
+            <img src="images/baud/baud-agent.png" width="760" height="1429" loading="lazy" alt="An agent's card: its role and status, counts of mail, plans and todos, and buttons for files, shell, watch and memory." />
+            <figcaption>An agent's card: what it is doing, its mail, plans and todos, and the doors to its files, shell and memory.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/baud/baud-room.png" width="760" height="1499" loading="lazy" alt="A room: an agent's live terminal session on the phone, with a key row and a line to type into at the bottom." />
+            <figcaption>A room: the agent's live session. Read it, type into it, send it a photo.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/baud/baud-monitor.png" width="760" height="800" loading="lazy" alt="The machine monitor: overall CPU use, a bar per core, and load averages over one, five and fifteen minutes." />
+            <figcaption>The machine: CPU per core and load, live, beside memory, temperature, network and battery.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="needs">
+      <div class="wrap">
+        <h2 id="needs">What it needs</h2>
+        <ul class="plain">
+          <li>An Android phone. BAUD is tested on Android; iPhone is not tested yet.</li>
+          <li><a href="https://tailscale.com">Tailscale</a> on the machine and on the phone, so the phone reaches the machine over your own network.</li>
+          <li>Linux on x86_64 for the machine.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="pair">
+      <div class="wrap">
+        <h2 id="pair">Pairing</h2>
+        <div>
+          <p>At the end of <code>aipass install</code>, the installer shows a QR code. Point the phone's camera at it and tap the link; the phone signs itself in. The code works once, for five minutes.</p>
+          <p>A paired phone can act as you on the machine. Guard it like an SSH key, and revoke its access the moment it is lost.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="get">
+      <div class="wrap">
+        <h2 id="get">Get it</h2>
+        <div>
+          <p><a href="install.html">Installing AIPass</a> sets BAUD up with it. BAUD's own installer also installs both at once:</p>
+          <pre><code><span class="prompt">$ </span>curl -fsSL https://github.com/AIOSAI/baud/releases/latest/download/install.sh | sh</code></pre>
+          <ul class="plain">
+            <li><a href="https://github.com/AIOSAI/baud">BAUD on GitHub</a>, with the careful install path and its checksum</li>
+            <li><a href="https://github.com/AIOSAI/baud/blob/main/docs/phone-setup-android.md">Phone setup on Android, step by step</a></li>
+            <li><a href="https://github.com/AIOSAI/baud/blob/main/SECURITY.md">BAUD's security model</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>AIPass is open source under the MIT licence. It runs on your machine, with no account with us.</p>
+      <ul>
+        <li><a href="https://github.com/AIOSAI/AIPass">GitHub</a></li>
+        <li><a href="https://pypi.org/project/aipass/">PyPI</a></li>
+        <li><a href="https://reddit.com/r/AIPass">r/AIPass</a></li>
+        <li><a href="https://x.com/AIPassSystem">X</a></li>
+        <li><a href="https://bsky.app/profile/aipass.bsky.social">Bluesky</a></li>
+        <li><a href="https://dev.to/aipass">dev.to</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
