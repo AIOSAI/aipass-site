@@ -1,11 +1,13 @@
 {
-  "aipass_version": "2.8.24",
-  "stamped_at": "2026-10-22T03:38:58.280102+00:00",
+  "aipass_version": "2.8.28",
+  "stamped_at": "2026-10-27T04:37:25.817972+00:00",
   "files": {
-    ".aipass/hooks.json": "d31d51b61db8f244250487d1ecc751a16fe3df0665ff054555b7d623680e3361",
-    ".claude/commands/prep.md": "0a10a43dd326107a82f2371a1065f4fec15fe840a31e2c6ff872a66bd3cada03",
+    ".agents/skills/prep/SKILL.md": "387c4a9f35e5b6202efd551d7655fab08e9313c6db604f1559d387aadd5591d7",
+    ".aipass/hooks.json": "16401383f1393c5db625cbc6a50e9720cafcff808f672da8931703dd497fc520",
+    ".claude/commands/codex.md": "b5154f128b622546225b69e0c6aae66ed160954061e9461e9b9f8bac855e9c61",
     ".claude/settings.json": "176b5b9dc3b5a351ac4918957b96d1d3a5e225f3bd6743d4e7d15c4ff666dbb9",
     ".claude/settings.local.json": "d9d232266a8e8dd037fc44eae700c72fe9f1d918387385856f6bd4d2fc5cb9ac",
+    ".codex/skills/claude/SKILL.md": "98a5005dd99319916915a51f36f821005c371f000fad06ed2c76bd39d64988cc",
     "AGENTS.md": "d8fba8badcd87cef2521489b2091c74abd81b0841685ea72cb98ed24c283233e"
   }
 }
