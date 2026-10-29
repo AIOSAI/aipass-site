@@ -61,6 +61,7 @@
             <li>Python 3.10 or newer.</li>
             <li><a href="https://code.claude.com/docs">Claude Code</a> on a Claude plan that includes it.</li>
             <li><a href="https://github.com/openai/codex">Codex</a>, if you want it: with its binary on your PATH, install sets it up as a second CLI for the same agents, and each agent runs on either.</li>
+            <li><a href="https://opencode.ai">OpenCode</a>, if you want it: with its binary on your PATH, install adds the AIPass plugin so the same agents run on it too. Signed out, it uses OpenCode's free models.</li>
             <li>Linux or macOS. On Windows, install inside <a href="https://learn.microsoft.com/windows/wsl/install">WSL2</a>.</li>
           </ul>
           <p class="note">Linux is the daily platform; macOS runs the full test suite in CI. <a href="https://github.com/AIOSAI/AIPass#requirements">Full requirements</a>.</p>
@@ -84,7 +85,7 @@
           <li>
             Check it.
             <pre><code><span class="prompt">$ </span>aipass doctor</code></pre>
-            <p>Doctor checks both CLIs, Claude Code and Codex, and names anything that is off; <code>aipass doctor --fix</code> cures what it can.</p>
+            <p>Doctor checks every CLI you have, Claude Code, Codex and OpenCode, and names anything that is off; <code>aipass doctor --fix</code> cures what it can.</p>
           </li>
         </ol>
       </div>
@@ -94,7 +95,7 @@
       <div class="wrap">
         <h2 id="changes">What install changes</h2>
         <div>
-          <p>Beyond its own folder, install adds hooks and deny rules to your user-level Claude Code settings, a few lines to your shell startup file, and command links on your PATH. With Codex on your PATH, it also writes the same hooks to your user-level <code>~/.codex/hooks.json</code> and a few settings in <code>~/.codex/config.toml</code>; run <code>codex</code> once and choose <em>Trust all and continue</em> to switch the hooks on. It may also set git's <code>pull.rebase</code> and, on Linux, add one npm package for the sandbox. Every change to your Claude Code settings or Codex hooks leaves a dated backup first.</p>
+          <p>Beyond its own folder, install adds hooks and deny rules to your user-level Claude Code settings, a few lines to your shell startup file, and command links on your PATH. With Codex on your PATH, it also writes the same hooks to your user-level <code>~/.codex/hooks.json</code> and a few settings in <code>~/.codex/config.toml</code>; run <code>codex</code> once and choose <em>Trust all and continue</em> to switch the hooks on. With OpenCode on your PATH, it copies the AIPass plugin to <code>~/.config/opencode/plugins/aipass.ts</code>. It may also set git's <code>pull.rebase</code> and, on Linux, add one npm package for the sandbox. Every change to your Claude Code settings, Codex hooks or OpenCode plugin leaves a dated backup first.</p>
           <p><a href="https://github.com/AIOSAI/AIPass#what-install-changes">See every change it makes</a></p>
         </div>
       </div>
