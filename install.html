@@ -112,7 +112,7 @@
 <span class="prompt"># </span>export PATH="$HOME/.local/bin:$PATH"
 <span class="prompt"># </span>pipx install aipass
 <span class="prompt"># </span>aipass install --non-interactive --no-baud</code></pre>
-          <p><code>--non-interactive</code> installs with defaults and asks nothing; <code>--no-baud</code> leaves out the phone face. A non-interactive install skips the health check, so run <code>aipass doctor --fix</code> afterwards. Install and sign in to Claude Code inside the container to talk to the agents.</p>
+          <p><code>--non-interactive</code> installs with defaults and asks nothing; <code>--no-baud</code> leaves out the phone face. A non-interactive install runs the health check but writes no Claude Code, Codex or OpenCode settings without <code>--yes</code>, so run <code>aipass doctor --fix --yes</code> afterwards. Install and sign in to Claude Code inside the container to talk to the agents.</p>
         </div>
       </div>
     </section>
